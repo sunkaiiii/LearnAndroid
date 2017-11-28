@@ -1,6 +1,7 @@
 package com.example.user.testproject;
 
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -8,9 +9,11 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -107,15 +110,26 @@ public class MainActivity extends AppCompatActivity {
         Bitmap bit=BitmapFactory.decodeResource(res,R.drawable.choclate);
         notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         if(Build.VERSION.SDK_INT>=26) {
-            Notification builder = new Notification.Builder(this, "tag")
+            //安卓8.0推送的方式有所改变
+            //要向某个应用的通知channel发送通知
+            //所以首先创建一个channel
+            NotificationChannel channel=new NotificationChannel("1","Channel",NotificationManager.IMPORTANCE_DEFAULT);
+            //使用此channel的时候使用的各项通知数据
+            channel.enableLights(true);
+            channel.setLightColor(Color.GREEN);
+            channel.setShowBadge(true);
+            //创建channel
+            notificationManager.createNotificationChannel(channel);
+            //绑定对应的channel id
+            Notification.Builder builder=new Notification.Builder(this,"1");
+            builder.setContentTitle(content)
+                    .setContentText(content)
                     .setSmallIcon(R.drawable.choclate)
-                    .setLargeIcon(bit)
-                    .setContentTitle(content)
-                    .setContentText(content + content + content + content)
-                    .setContentIntent(mainPendingIntent)
                     .setAutoCancel(true)
-                    .build();
-            notificationManager.notify(id, builder);
+                    //显示在launcher上的数字
+                    .setNumber(1)
+                    .setContentIntent(mainPendingIntent);
+            notificationManager.notify(id,builder.build());
         }
         else{
             NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "tag")
