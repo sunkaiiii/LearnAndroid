@@ -20,13 +20,16 @@ public class MainActivity extends AppCompatActivity {
         XGPushManager.registerPush(this, new XGIOperateCallback() {
             @Override
             public void onSuccess(Object o, int i) {
-                Log.d("TPush","注册成功，设备token为"+o);
-            }
+                    Log.d("TPush","注册成功，设备token为"+o);
+                }
 
             @Override
             public void onFail(Object o, int i, String s) {
-                Log.d("Tpush","注册失败，错误码"+i+"，错误信息"+s);
+                    Log.d("Tpush","注册失败，错误码"+i+"，错误信息"+s);
             }
         });
+
+
+
     }
 }
