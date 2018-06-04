@@ -42,9 +42,9 @@ public class MainActivity extends AppCompatActivity {
 
         //全屏+透明导航栏
 //        View decorView=getWindow().getDecorView();
-//        int option=View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-//                |View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-//                |View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
+        int option=View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                |View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                |View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
 //        decorView.setSystemUiVisibility(option);
 //        getWindow().setStatusBarColor(Color.TRANSPARENT);
 //        getWindow().setNavigationBarColor(Color.TRANSPARENT);

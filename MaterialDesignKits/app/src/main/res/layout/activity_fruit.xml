@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context="com.example.sunkai.materialdesignkits.FruitActivity"
     android:fitsSystemWindows="true">
+    <!--fitsSystemWindows可以让图片深入透明之后的状态栏-->
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="250dp"
@@ -18,7 +20,8 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            android:fitsSystemWindows="true">
+            android:fitsSystemWindows="true"
+            >
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -31,7 +34,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:id="@+id/toolbar"
-                app:layout_collapseMode="pin"/>
+                app:layout_collapseMode="pin">
+                <android.support.v4.widget.CircleImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_call_white_24dp"/>
+            </android.support.v7.widget.Toolbar>
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
     <android.support.v4.widget.NestedScrollView
