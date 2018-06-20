@@ -31,6 +31,11 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         textView.setOnClickListener(v -> v.scrollBy(-20,-20));
         button.setOnClickListener(v -> startActivity(new Intent(MainActivity.this,Main2Activity.class)));
         button2.setOnClickListener((v)-> startActivity(new Intent(MainActivity.this,Main3Activity.class)));
+        findViewById(R.id.remoteview).setOnClickListener((v)->{
+            startActivity(new Intent(this,Main4Activity.class));
+        });
+        findViewById(R.id.button4).setOnClickListener((v)->startActivity(new Intent(MainActivity.this,Main5Activity.class)));
+        findViewById(R.id.button5).setOnClickListener((v)->startActivity(new Intent(MainActivity.this,Main6Activity.class)));
     }
 
     //滑动速度追踪
